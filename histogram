@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class histogram {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        double n = Double.parseDouble(input.nextLine());
+        double p1 = 0;
+        double p2 = 0;
+        double p3 = 0;
+        double p4 = 0;
+        double p5 = 0;
+        for (int i = 0; i < n; i++) {
+            int number = Integer.parseInt(input.nextLine());
+            if (number < 200){
+                p1++;
+            }
+            if (number >= 200 && number <= 399){
+                p2++;
+            }
+            if (number >=400 && number <= 599){
+                p3++;
+            }
+            if (number >=600 && number <= 799){
+                p4++;
+            }
+            if(number >= 800){
+                p5++;
+            }
+        }
+        double p1Procent = (p1 / n) * 100.0;
+        double p2Procent = (p2 / n) * 100.0;
+        double p3Procent = (p3 / n) * 100.0;
+        double p4Procent = (p4 / n) * 100.0;
+        double p5Procent = (p5 / n) * 100.0;
+        System.out.printf("%.2f%%%n",p1Procent);
+        System.out.printf("%.2f%%%n",p2Procent);
+        System.out.printf("%.2f%%%n",p3Procent);
+        System.out.printf("%.2f%%%n",p4Procent);
+        System.out.printf("%.2f%%",p5Procent);
+    }
+}
