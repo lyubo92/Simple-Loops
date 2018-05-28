@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class modulDivision {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        double  n = Double.parseDouble(input.nextLine());
+        double p1 = 0;
+        double p2 = 0;
+        double p3 = 0;
+        for (int i = 0; i < n; i++) {
+            int number = Integer.parseInt(input.nextLine());
+            if (number % 2 == 0){
+                p1++;
+            }
+            if (number % 3 == 0){
+                p2++;
+            }
+            if (number % 4 == 0){
+                p3++;
+            }
+        }
+        double p1Procent = p1 / n * 100;
+        double p2Procent = p2 / n * 100;
+        double p3Procent = p3 / n * 100;
+        System.out.printf("%.2f%%%n",p1Procent);
+        System.out.printf("%.2f%%%n",p2Procent);
+        System.out.printf("%.2f%%%n",p3Procent);
+    }
+}
