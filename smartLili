@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class smartLili {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int age = Integer.parseInt(input.nextLine());
+        double washing = Double.parseDouble(input.nextLine());
+        int toyPrice = Integer.parseInt(input.nextLine());
+        int toys = 0;
+        int money = 0;
+        int count = 0;
+        int moneyIncrease = 10;
+        for (int i = 1; i <= age; i += 2) {
+            toys++;
+        }
+        for (int i = 2; i <= age; i += 2) {
+            money += moneyIncrease;
+            moneyIncrease += 10;
+            count++;
+        }
+        int toyProfit = toys * toyPrice;
+        int total = money + toyProfit - count;
+        if (total >= washing){
+            double diff = total - washing;
+            System.out.printf("Yes! %.2f",diff);
+        }
+        if (total < washing){
+           double diff = washing - total;
+            System.out.printf("No! %.2f",diff);
+        }
+    }
+}
