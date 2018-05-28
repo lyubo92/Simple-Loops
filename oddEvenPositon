@@ -1,0 +1,66 @@
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+public class oddEvenPositon {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n = Integer.parseInt(input.nextLine());
+        double[] array = new double[n];
+        DecimalFormat df = new DecimalFormat("#.###");
+        for (int i = 0; i < n; i++) {
+            double number = Double.parseDouble(input.nextLine());
+            array[i] = number;
+        }
+        double oddSum = 0;
+        for (int i = 0; i < n; i += 2) {
+            oddSum += array[i];
+        }
+        double evenSum = 0;
+        for (int i = 1; i < n; i += 2) {
+            evenSum += array[i];
+        }
+        double minOdd = Double.POSITIVE_INFINITY;
+        double maxOdd = Double.NEGATIVE_INFINITY;
+        double minEven = Double.POSITIVE_INFINITY;
+        double maxEven = Double.NEGATIVE_INFINITY;
+        for (int i = 0; i < n; i += 2) {
+            if (array[i] > maxOdd) {
+                maxOdd = array[i];
+            }
+            if (array[i] < minOdd) {
+                minOdd = array[i];
+            }
+        }
+        for (int i = 1; i < n; i += 2) {
+            if (array[i] > maxEven) {
+                maxEven = array[i];
+            }
+            if (array[i] < minEven) {
+                minEven = array[i];
+            }
+        }
+        // print
+        System.out.printf("OddSum = %s%n", df.format(oddSum));
+        if (minOdd != Double.POSITIVE_INFINITY){
+            System.out.printf("OddMin = %s%n", df.format(minOdd));
+        }else{
+            System.out.println("OddMin = No");
+        }
+        if (maxOdd != Double.NEGATIVE_INFINITY){
+            System.out.printf("OddMax = %s%n", df.format(maxOdd));
+        }else{
+            System.out.println("OddMax = No");
+        }
+        System.out.printf("EvenSum = %s%n", df.format(evenSum));
+        if (minEven != Double.POSITIVE_INFINITY){
+            System.out.printf("EvenMin = %s%n", df.format(minEven));
+        }else{
+            System.out.println("EvenMin = No");
+        }
+        if (maxEven != Double.NEGATIVE_INFINITY){
+            System.out.printf("EvenMax = %s", df.format(maxEven));
+        }else{
+            System.out.println("EvenMax = No");
+        }
+    }
+}
